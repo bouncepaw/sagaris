@@ -10,7 +10,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ```
 
-![Letter layers](pic/layer letters.png)
+![Letter layers](pic/layer_letters.png)
 
 ```c
 [LATIN] = FINGERS(
@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RPRN, RU_A,    RU_Y,  RU_B,  RU_G, RU_TS),
 ```
 
-![Mars layer](pic/layer mars.png)
+![Mars layer](pic/layer_mars.png)
 
 ```c
 [MARS] = FINGERS(
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KK_HASH, KK_BSLS, KC_EXLM, _______, _______, _______),
 ```
 
-![Sun layer](pic/layer sun.png)
+![Sun layer](pic/layer_sun.png)
 
 ```c
 [SUN] = FINGERS(
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F15,  KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F18),
 ```
 
-![Moon layer](pic/layer moon.png)
+![Moon layer](pic/layer_moon.png)
 
 ```c
 [MOON] = FINGERS(
