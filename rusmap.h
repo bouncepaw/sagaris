@@ -1,3 +1,5 @@
+/* Merge change into upstream later!
+ * */
 #ifndef KLAVAROG_RUSMAP_H
 #define KLAVAROG_RUSMAP_H
 /*
@@ -68,7 +70,7 @@
 #define RU_EQUAL         KC_EQUAL           // =
 #define RU_PLUS          KC_PLUS            // +
 #define RU_BSLASH        KC_BSLASH          /* \ */
-#define RU_SLASH         LSFT(RU_BACKSLASH) // /
+#define RU_SLASH         LSFT(RU_BSLASH) // /
 #define RU_DOT           KC_SLSH            // .
 #define RU_COMMA         LSFT(KC_SLSH)      // ,
 
@@ -79,6 +81,7 @@
 #define RU_SCLN RU_SCOLON                   // ;
 #define RU_PERC RU_PERCENT                  // %
 #define RU_CLON RU_COLON                    // :
+#define RU_COLN RU_COLON
 #define RU_QUES RU_QUESTION                 // ?
 #define RU_ASTR RU_ASTERISK                 // *
 #define RU_LPRN RU_LEFT_PAREN               // (
