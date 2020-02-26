@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LATIN] = FINGERS(
-    KC_DQUO, KC_Z, KC_P, KC_R, KC_D, KC_MINS,
+    KC_DQUO, KC_Z, KC_P, KC_R, KC_D, /* KC_MINS */ RESET,
     KK_LANG, KC_H, KC_S, KC_T, KC_N, KK_CMSP,
     KC_Q,    KC_Y, KC_K, KC_M, KC_C, KC_LPRN,
     KC_SCLN, KC_F, KC_W, KC_U, KC_J, KC_QUOT,
@@ -118,7 +118,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // fix it! pastes the clipboard!!
     case KK_CMSP:
     if (record->event.pressed) {
-      tap_code16(KK_COMM);
+      /* Line below is meant to be like that: tap_code16(KK_COMM);
+         for some reason it does not work like that */
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
       tap_code16(KC_SPC);
     }
     return false;
