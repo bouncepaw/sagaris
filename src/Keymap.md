@@ -2,6 +2,7 @@
 
 ```
 #include QMK_KEYBOARD_H
+#include "layermode.h"
 ```
 
 ## The layers
@@ -120,12 +121,25 @@ if (record->event.pressed)
   tap_code16((layer_state & _BV(CYRILLIC)) ? RU_##ck : KC_##ck);
 return false
 ```
-
+
 ## Record processing
 
 ```c
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  KEYTIMER(M_LGUI);
+  KEYTIMER(M_LALT_TAB);
+  KEYTIMER(M_LSFT_BSPC);
+  KEYTIMER(M_SUN_ESC);
+  KEYTIMER(M_RGUI);
+  KEYTIMER(M_RCTL_DEL);
   switch (keycode) {
+    /*       key         turn off       turn on   hold     tap */
+    KEYMATCH(M_LGUI,      _BV(CYRILLIC), 0,        KC_LGUI, 0);
+    KEYMATCH(M_LALT_TAB,  _BV(CYRILLIC), 0,        KC_LALT, KC_TAB);
+    KEYMATCH(M_LSFT_BSPC, 0,             0,        KC_LSFT, KC_BSPC);
+    KEYMATCH(M_SUN_ESC,   0,             _BV(SUN), 0,       KC_ESC);
+    KEYMATCH(M_RGUI,      _BV(CYRILLIC), 0,        KC_RGUI, 0);
+    KEYMATCH(M_RCTL_DEL,  _BV(CYRILLIC), 0,        KC_RCTL, KC_DEL);
     // If Cyrillic is on, toggle Latin, type this, go back.
     // If Cyrillic isn't on, just type this.
     TYPE_IN_LATIN(LBRC);

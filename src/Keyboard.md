@@ -55,8 +55,18 @@ Processing is done in [Keymap.md](Keymap.md).
 - `KK_HASH`
 - `KK_BSLS`
 - `KK_DOT`
+- `M_LGUI`
+- `M_LALT_TAB`
+- `M_LSFT_BSPC`
+- `M_SUN_ESC`
+- `M_RGUI`
+- `M_RCTL_DEL`
 
 ## defconst Other custom keys but without extra processing
+
+- `M_MOUSE MO(MOUSE)`
+- `M_MARS MO(MARS)`
+- `M_MOON MO(MOON)`
 - `KK_COMP KC_SLCK`
   Compose key.
 - `KK_TPRV LCTL(LSFT(KC_TAB))`
@@ -76,7 +86,7 @@ Processing is done in [Keymap.md](Keymap.md).
 
 ## defmacro LAYOUT
 
-Edit with high attention to details.
+Edit with high attention to details. The zero-layer keys (thumbclusters) go like this on the left hand: under-ring one, left thumb, home thumb, left choc, right choc, chonky thumblord.
 
 - `k30, k31, k32, k33, k34, k35`
 - `k20, k21, k22, k23, k24, k25`
@@ -85,7 +95,7 @@ Edit with high attention to details.
 - `k36, k37, k38, k39, k3A, k3B`
 - `k26, k27, k28, k29, k2A, k2B`
 - `k16, k17, k18, k19, k1A, k1B`
-- `k09, k0A, k0B, k06, k07, k08`
+- `k06, k07, k08, k09, k0A, k0B`
 
 ```c
 { {k00, k01, k02, k03, k04, k05, k06, k07, k08, k09, k0A, k0B},
@@ -96,8 +106,6 @@ Edit with high attention to details.
 ```
 
 ## defmacro FINGERS
-
-**TODO:** add thumbs.
 
 - `k30, k31, k32, k33, k34, k35`
 - `k20, k21, k22, k23, k24, k25`
@@ -111,11 +119,13 @@ LAYOUT(
   k30, k31, k32, k33, k34, k35,
   k20, k21, k22, k23, k24, k25,
   k10, k11, k12, k13, k14, k15,
-  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+  M_LGUI, M_LALT_TAB, M_LSFT_BSPC,
+  M_MOUSE, M_MARS, M_SUN_ESC,
   k36, k37, k38, k39, k3A, k3B,
   k26, k27, k28, k29, k2A, k2B,
   k16, k17, k18, k19, k1A, k1B,
-  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+  KC_SPC, M_RCTL_DEL, KC_RALT,
+  M_MOON, M_RGUI, KK_COMP
 )
 ```
 
