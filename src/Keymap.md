@@ -1,8 +1,9 @@
 # Keymap
 
-```
+```c
 #include QMK_KEYBOARD_H
 #include "layermode.h"
+#include "chords.h"
 ```
 
 ## The layers
@@ -13,9 +14,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ![Letter layers](pic/layer_letters.png)
 
+The Cyrillic chords are not declared in this file, see `chords.ini`.
+
 ```c
 [LATIN] = FINGERS(
-    KC_DQUO, KC_Z, KC_P, KC_R, KC_D, /* KC_MINS */ RESET,
+    KC_DQUO, KC_Z, KC_P, KC_R, KC_D, KC_MINS,
     KK_LANG, KC_H, KC_S, KC_T, KC_N, KK_CMSP,
     KC_Q,    KC_Y, KC_K, KC_M, KC_C, KC_LPRN,
     KC_SCLN, KC_F, KC_W, KC_U, KC_J, KC_QUOT,
@@ -68,11 +71,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ![Mouse layer](pic/layer_mouse.png)
 
+Also note the `RESET` keycode that is not present in the picture.
+
 ```c
 [MOUSE] = FINGERS(
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    RESET,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     KC_MS_BTN3, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_L, KC_WH_R,
     XXXXXXX,    KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_U, XXXXXXX,
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX),
