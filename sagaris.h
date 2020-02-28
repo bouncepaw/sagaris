@@ -16,6 +16,8 @@ enum custom_key {
     KK_EMOT,
     KK_LBRC,
     KK_RBRC,
+    KK_LCBR,
+    KK_RCBR,
     KK_PIPE,
     KK_TILD,
     KK_COLN,
@@ -37,12 +39,13 @@ enum custom_key {
     M_LSFT_BSPC,
     M_SUN_ESC,
     M_RGUI,
-    M_RCTL_DEL
+    M_RCTL_DEL,
+    M_RCTL_MOON
 } ;
 #define M_MOUSE MO(MOUSE)
 #define M_MARS MO(MARS)
 #define M_MOON MO(MOON)
-#define KK_COMP KC_SLCK
+#define M_ALT_CMP RALT_T(KC_SLCK)
 #define KK_TPRV LCTL(LSFT(KC_TAB))
 #define KK_TNXT LCTL(KC_TAB)
 #define KK_SASK LGUI(LSFT(KC_5))
@@ -67,6 +70,6 @@ LAYOUT(\
   k36, k37, k38, k39, k3A, k3B,\
   k26, k27, k28, k29, k2A, k2B,\
   k16, k17, k18, k19, k1A, k1B,\
-  KC_SPC, M_RCTL_DEL, KC_RALT,\
-  M_MOON, M_RGUI, KK_COMP\
+  KC_SPC, M_RCTL_DEL, M_ALT_CMP,\
+  M_MOON, M_RGUI, M_RCTL_MOON\
 )

@@ -39,6 +39,9 @@ Processing is done in [Keymap.md](Keymap.md).
 - `KK_LBRC`
 - `KK_RBRC`
   Square brackets
+- `KK_LCBR`
+- `KK_RCBR`
+  Curly braces.
 - `KK_PIPE`
 - `KK_TILD`
 - `KK_COLN`
@@ -61,14 +64,14 @@ Processing is done in [Keymap.md](Keymap.md).
 - `M_SUN_ESC`
 - `M_RGUI`
 - `M_RCTL_DEL`
+- `M_RCTL_MOON`
 
 ## defconst Other custom keys but without extra processing
 
 - `M_MOUSE MO(MOUSE)`
 - `M_MARS MO(MARS)`
 - `M_MOON MO(MOON)`
-- `KK_COMP KC_SLCK`
-  Compose key.
+- `M_ALT_CMP RALT_T(KC_SLCK)`
 - `KK_TPRV LCTL(LSFT(KC_TAB))`
   Previous tab hotkey used in many apps.
 - `KK_TNXT LCTL(KC_TAB)`
@@ -124,8 +127,8 @@ LAYOUT(
   k36, k37, k38, k39, k3A, k3B,
   k26, k27, k28, k29, k2A, k2B,
   k16, k17, k18, k19, k1A, k1B,
-  KC_SPC, M_RCTL_DEL, KC_RALT,
-  M_MOON, M_RGUI, KK_COMP
+  KC_SPC, M_RCTL_DEL, M_ALT_CMP,
+  M_MOON, M_RGUI, M_RCTL_MOON
 )
 ```
 

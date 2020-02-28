@@ -71,8 +71,6 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
 
 ![Mouse layer](pic/layer_mouse.png)
 
-Also note the `RESET` keycode that is not present in the picture.
-
 ```c
 [MOUSE] = FINGERS(
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -137,18 +135,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   KEYTIMER(M_SUN_ESC);
   KEYTIMER(M_RGUI);
   KEYTIMER(M_RCTL_DEL);
+  KEYTIMER(M_RCTL_MOON);
   switch (keycode) {
     /*       key         turn off       turn on   hold     tap */
-    KEYMATCH(M_LGUI,      _BV(CYRILLIC), 0,        KC_LGUI, 0);
-    KEYMATCH(M_LALT_TAB,  _BV(CYRILLIC), 0,        KC_LALT, KC_TAB);
-    KEYMATCH(M_LSFT_BSPC, 0,             0,        KC_LSFT, KC_BSPC);
-    KEYMATCH(M_SUN_ESC,   0,             _BV(SUN), 0,       KC_ESC);
-    KEYMATCH(M_RGUI,      _BV(CYRILLIC), 0,        KC_RGUI, 0);
-    KEYMATCH(M_RCTL_DEL,  _BV(CYRILLIC), 0,        KC_RCTL, KC_DEL);
+    KEYMATCH(M_LGUI,      _BV(CYRILLIC), 0,         KC_LGUI, 0);
+    KEYMATCH(M_LALT_TAB,  _BV(CYRILLIC), 0,         KC_LALT, KC_TAB);
+    KEYMATCH(M_LSFT_BSPC, 0,             0,         KC_LSFT, KC_BSPC);
+    KEYMATCH(M_SUN_ESC,   0,             _BV(SUN),  0,       KC_ESC);
+    KEYMATCH(M_RGUI,      _BV(CYRILLIC), 0,         KC_RGUI, 0);
+    KEYMATCH(M_RCTL_DEL,  _BV(CYRILLIC), 0,         KC_RCTL, KC_DEL);
+    KEYMATCH(M_RCTL_MOON, _BV(CYRILLIC), _BV(MOON), KC_RCTL, 0);
     // If Cyrillic is on, toggle Latin, type this, go back.
     // If Cyrillic isn't on, just type this.
     TYPE_IN_LATIN(LBRC);
     TYPE_IN_LATIN(RBRC);
+    TYPE_IN_LATIN(LCBR);
+    TYPE_IN_LATIN(RCBR);
     TYPE_IN_LATIN(PIPE);
     TYPE_IN_LATIN(TILD);
     TYPE_IN_LATIN(LT);
@@ -178,6 +180,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       bool should_toggle_back = layer_state & _BV(CYRILLIC);
       if (should_toggle_back) toggle_language();
+      tap_code16(KC_SLCK);
       tap_code16(KC_LT);
       tap_code16(KC_LT);
       if (should_toggle_back) toggle_language();
@@ -188,6 +191,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       bool should_toggle_back = layer_state & _BV(CYRILLIC);
       if (should_toggle_back) toggle_language();
+      tap_code16(KC_SLCK);
       tap_code16(KC_GT);
       tap_code16(KC_GT);
       if (should_toggle_back) toggle_language();
