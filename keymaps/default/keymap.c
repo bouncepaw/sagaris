@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F14,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F17,
     KC_F15,  KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F18),
 [MOON] = FINGERS(
-    _______, KC_7,    KC_6,    KC_5,    KC_4,    _______,
+    RU_HARD, KC_7,    KC_6,    KC_5,    KC_4,    _______,
     _______, KC_3,    KC_2,    KC_1,    KC_0,    KK_COMM,
     _______, _______, _______, KC_8,    KC_9,    _______,
     _______, KC_HOME, KC_UP,   KC_END,  _______, _______,

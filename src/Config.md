@@ -25,10 +25,11 @@
   ![Pro Micro pinout]()
 - `DIODE_DIRECTION COL2ROW`
   Found out through experimental way.
-- `TAPPING_TERM 150`
+- `TAPPING_TERM 140`
 - `DEBOUNCING_DELAY 5`
 - `LOCKING_SUPPORT_ENABLE`
 - `LOCKING_RESYNC_ENABLE`
+- `COMBO_ALLOW_ACTION_KEYS`
 - `COMBO_COUNT 11`
   To be added later.
 

@@ -59,9 +59,11 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
 
 ![Moon layer](pic/layer_moon.png)
 
+Note the hard sign not on the picture.
+
 ```c
 [MOON] = FINGERS(
-    _______, KC_7,    KC_6,    KC_5,    KC_4,    _______,
+    RU_HARD, KC_7,    KC_6,    KC_5,    KC_4,    _______,
     _______, KC_3,    KC_2,    KC_1,    KC_0,    KK_COMM,
     _______, _______, _______, KC_8,    KC_9,    _______,
     _______, KC_HOME, KC_UP,   KC_END,  _______, _______,
