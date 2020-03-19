@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KK_LANG, RU_V,    RU_S,  RU_T,  RU_N, KK_CMSP,
     RU_F,    RU_J,    RU_Z,  RU_M,  RU_K, KC_LPRN,
     RU_SCLN, RU_SOFT, RU_JA, RU_U,  RU_H, RU_E,
-    RU_DOT,  RU_JE,   RU_O,  RU_I,  RU_L, KC_ENT,
+    KK_DTSP, RU_JE,   RU_O,  RU_I,  RU_L, KC_ENT,
     KC_RPRN, RU_A,    RU_Y,  RU_B,  RU_G, RU_TS),
 [MARS] = FINGERS(
     KK_DQUO, _______, KK_GUIL, KK_LBRC, KC_PLUS, _______,
@@ -69,7 +69,6 @@ return false
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   KEYTIMER(M_LGUI);
   KEYTIMER(M_LALT_TAB);
-  KEYTIMER(M_LSFT_BSPC);
   KEYTIMER(M_SUN_ESC);
   KEYTIMER(M_RGUI);
   KEYTIMER(M_RCTL_DEL);
@@ -78,7 +77,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     /*       key         turn off       turn on   hold     tap */
     KEYMATCH(M_LGUI,      _BV(CYRILLIC), 0,         KC_LGUI, 0);
     KEYMATCH(M_LALT_TAB,  _BV(CYRILLIC), 0,         KC_LALT, KC_TAB);
-    KEYMATCH(M_LSFT_BSPC, 0,             0,         KC_LSFT, KC_BSPC);
     KEYMATCH(M_SUN_ESC,   0,             _BV(SUN),  0,       KC_ESC);
     KEYMATCH(M_RGUI,      _BV(CYRILLIC), 0,         KC_RGUI, 0);
     KEYMATCH(M_RCTL_DEL,  _BV(CYRILLIC), 0,         KC_RCTL, KC_DEL);
@@ -144,6 +142,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16(KC_SPC);
     }
     return false;
+
+    // cyrillic dot and a space
+    case KK_DTSP:
+    if (record->event.pressed) {
+      tap_code16(RU_DOT);
+      tap_code16(KC_SPC);
+    }
   }
   return true;
 }

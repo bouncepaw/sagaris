@@ -10,6 +10,7 @@
 enum custom_key {
     KK_LANG = SAFE_RANGE,
     KK_CMSP,
+    KK_DTSP,
     KK_COMM,
     KK_DQUO,
     KK_GUIL,
@@ -36,12 +37,12 @@ enum custom_key {
     KK_DOT,
     M_LGUI,
     M_LALT_TAB,
-    M_LSFT_BSPC,
     M_SUN_ESC,
     M_RGUI,
     M_RCTL_DEL,
     M_RCTL_MOON
 } ;
+#define M_LSFT_BSPC MT(MOD_LSFT, KC_BSPC)
 #define M_MOUSE MO(MOUSE)
 #define M_MARS MO(MARS)
 #define M_MOON MO(MOON)

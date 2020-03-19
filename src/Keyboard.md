@@ -31,6 +31,7 @@ Processing is done in [Keymap.md](Keymap.md).
   The one that switches layouts.
 - `KK_CMSP`
   Type comma and a space dependent on current layout.
+- `KK_DTSP`
 - `KK_COMM`
 - `KK_DQUO`
 - `KK_GUIL`
@@ -60,7 +61,6 @@ Processing is done in [Keymap.md](Keymap.md).
 - `KK_DOT`
 - `M_LGUI`
 - `M_LALT_TAB`
-- `M_LSFT_BSPC`
 - `M_SUN_ESC`
 - `M_RGUI`
 - `M_RCTL_DEL`
@@ -68,6 +68,7 @@ Processing is done in [Keymap.md](Keymap.md).
 
 ## defconst Other custom keys but without extra processing
 
+- `M_LSFT_BSPC MT(MOD_LSFT, KC_BSPC)`
 - `M_MOUSE MO(MOUSE)`
 - `M_MARS MO(MARS)`
 - `M_MOON MO(MOON)`

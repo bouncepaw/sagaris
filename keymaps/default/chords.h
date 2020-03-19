@@ -1,121 +1,85 @@
 #ifndef KLAVAROG_CHORDGEN
 #define KLAVAROG_CHORDGEN
 enum combo_events {
-  combo_event_8138344561115434341, //tap_code16(RU_SHCH);
-  combo_event_4178515284213873733, //tap_code16(RU_JU);
-  combo_event_6738338680210479001, //tap_code16(KC_GRAVE);
-  combo_event_4858290360132765887, //tap_code16(RU_SH);
-  combo_event_4629810008586955458, //tap_code16(RU_JO);
-  combo_event_2435996559551743099, //tap_code16(KC_UNDS);
-  combo_event_7464870379353719585, //tap_code16(KC_LCBR);
-  combo_event_6293806798428736719, //tap_code16(KC_RCBR);
-  combo_event_5098994651652686727, //tap_code16(KC_UNDS);
-  combo_event_7144068384677023532, //tap_code16(KC_LCBR);
-  combo_event_6621091604123896652, //tap_code16(KC_RCBR);
+  combo_event_3635722050819258543, //tap_code16(RU_SHCH);
+  combo_event_1869332572469108580, //tap_code16(RU_JU);
+  combo_event_4060120399592134633, //tap_code16(KC_GRAVE);
+  combo_event_2631682705235724930, //tap_code16(RU_SH);
+  combo_event_2597827877647466371, //tap_code16(KC_UNDS);
+  combo_event_5179501549317328715, //tap_code16(KC_UNDS);
+  combo_event_1677738204539990625, //tap_code16(KC_LCBR);
+  combo_event_6411135477331246535, //tap_code16(KC_RCBR);
   
 };
-const uint16_t PROGMEM combo_array_8138344561115434341[] = {
+const uint16_t PROGMEM combo_array_3635722050819258543[] = {
   RU_SOFT, RU_JA, COMBO_END
 };
-const uint16_t PROGMEM combo_array_4178515284213873733[] = {
+const uint16_t PROGMEM combo_array_1869332572469108580[] = {
   RU_JA, RU_U, COMBO_END
 };
-const uint16_t PROGMEM combo_array_6738338680210479001[] = {
+const uint16_t PROGMEM combo_array_4060120399592134633[] = {
   RU_A, RU_Y, COMBO_END
 };
-const uint16_t PROGMEM combo_array_4858290360132765887[] = {
+const uint16_t PROGMEM combo_array_2631682705235724930[] = {
   RU_Z, RU_M, COMBO_END
 };
-const uint16_t PROGMEM combo_array_4629810008586955458[] = {
-  RU_F, RU_TS, COMBO_END
-};
-const uint16_t PROGMEM combo_array_2435996559551743099[] = {
+const uint16_t PROGMEM combo_array_2597827877647466371[] = {
   RU_JE, RU_O, RU_I, COMBO_END
 };
-const uint16_t PROGMEM combo_array_7464870379353719585[] = {
-  RU_D, RU_N, COMBO_END
-};
-const uint16_t PROGMEM combo_array_6293806798428736719[] = {
-  RU_SOFT, RU_JE, COMBO_END
-};
-const uint16_t PROGMEM combo_array_5098994651652686727[] = {
+const uint16_t PROGMEM combo_array_5179501549317328715[] = {
   KC_E, KC_O, KC_I, COMBO_END
 };
-const uint16_t PROGMEM combo_array_7144068384677023532[] = {
+const uint16_t PROGMEM combo_array_1677738204539990625[] = {
   KC_D, KC_N, COMBO_END
 };
-const uint16_t PROGMEM combo_array_6621091604123896652[] = {
+const uint16_t PROGMEM combo_array_6411135477331246535[] = {
   KC_F, KC_E, COMBO_END
 };
 combo_t key_combos[COMBO_COUNT] = {
-  [combo_event_8138344561115434341] = COMBO_ACTION(combo_array_8138344561115434341),
-  [combo_event_4178515284213873733] = COMBO_ACTION(combo_array_4178515284213873733),
-  [combo_event_6738338680210479001] = COMBO_ACTION(combo_array_6738338680210479001),
-  [combo_event_4858290360132765887] = COMBO_ACTION(combo_array_4858290360132765887),
-  [combo_event_4629810008586955458] = COMBO_ACTION(combo_array_4629810008586955458),
-  [combo_event_2435996559551743099] = COMBO_ACTION(combo_array_2435996559551743099),
-  [combo_event_7464870379353719585] = COMBO_ACTION(combo_array_7464870379353719585),
-  [combo_event_6293806798428736719] = COMBO_ACTION(combo_array_6293806798428736719),
-  [combo_event_5098994651652686727] = COMBO_ACTION(combo_array_5098994651652686727),
-  [combo_event_7144068384677023532] = COMBO_ACTION(combo_array_7144068384677023532),
-  [combo_event_6621091604123896652] = COMBO_ACTION(combo_array_6621091604123896652),
+  [combo_event_3635722050819258543] = COMBO_ACTION(combo_array_3635722050819258543),
+  [combo_event_1869332572469108580] = COMBO_ACTION(combo_array_1869332572469108580),
+  [combo_event_4060120399592134633] = COMBO_ACTION(combo_array_4060120399592134633),
+  [combo_event_2631682705235724930] = COMBO_ACTION(combo_array_2631682705235724930),
+  [combo_event_2597827877647466371] = COMBO_ACTION(combo_array_2597827877647466371),
+  [combo_event_5179501549317328715] = COMBO_ACTION(combo_array_5179501549317328715),
+  [combo_event_1677738204539990625] = COMBO_ACTION(combo_array_1677738204539990625),
+  [combo_event_6411135477331246535] = COMBO_ACTION(combo_array_6411135477331246535),
   
 };
 void process_combo_event(uint8_t combo_index, bool pressed) {
   if (layer_state & (1 << CYRILLIC)) {
     switch (combo_index) {
-      case combo_event_8138344561115434341: {
+      case combo_event_3635722050819258543: {
         if (pressed) {
   tap_code16(RU_SHCH);
 
 }
 return;
 }
-    case combo_event_4178515284213873733: {
+    case combo_event_1869332572469108580: {
         if (pressed) {
   tap_code16(RU_JU);
 
 }
 return;
 }
-    case combo_event_6738338680210479001: {
+    case combo_event_4060120399592134633: {
         if (pressed) {
   tap_code16(KC_GRAVE);
 
 }
 return;
 }
-    case combo_event_4858290360132765887: {
+    case combo_event_2631682705235724930: {
         if (pressed) {
   tap_code16(RU_SH);
 
 }
 return;
 }
-    case combo_event_4629810008586955458: {
-        if (pressed) {
-  tap_code16(RU_JO);
-
-}
-return;
-}
-    case combo_event_2435996559551743099: {
+    case combo_event_2597827877647466371: {
         if (pressed) {
   tap_code16(KC_UNDS);
-
-}
-return;
-}
-    case combo_event_7464870379353719585: {
-        if (pressed) {
-  tap_code16(KC_LCBR);
-
-}
-return;
-}
-    case combo_event_6293806798428736719: {
-        if (pressed) {
-  tap_code16(KC_RCBR);
 
 }
 return;
@@ -126,21 +90,21 @@ return;
 }
  else if (1) {
     switch (combo_index) {
-      case combo_event_5098994651652686727: {
+      case combo_event_5179501549317328715: {
         if (pressed) {
   tap_code16(KC_UNDS);
 
 }
 return;
 }
-    case combo_event_7144068384677023532: {
+    case combo_event_1677738204539990625: {
         if (pressed) {
   tap_code16(KC_LCBR);
 
 }
 return;
 }
-    case combo_event_6621091604123896652: {
+    case combo_event_6411135477331246535: {
         if (pressed) {
   tap_code16(KC_RCBR);
 
