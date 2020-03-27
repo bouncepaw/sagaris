@@ -211,6 +211,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16(RU_DOT);
       tap_code16(KC_SPC);
     }
+    return false;
 
     case KK_MDSH:
     if (record->event.pressed) {
@@ -218,6 +219,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16(KC_MINS);
       tap_code16(KC_MINS);
     }
+    return false;
 
     case KK_3DOT:
     if (record->event.pressed) {
@@ -225,6 +227,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
     }
+    return false;
 
     case KK_ELLI:
     if (record->event.pressed) {
@@ -233,6 +236,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
     }
+    return false;
   }
   return true;
 }
