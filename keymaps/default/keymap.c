@@ -18,15 +18,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_RPRN, RU_A,    RU_Y,  RU_B,  RU_G, RU_TS),
 [MARS] = FINGERS(
     KK_DQUO, _______, KK_GUIL, KK_LBRC, KC_PLUS, _______,
-    _______, KK_PIPE, KK_TILD, KC_PERC, KK_COLN, KK_LT,
+    KK_MDSH, KK_PIPE, KK_TILD, KC_PERC, KK_COLN, KK_LT,
     _______, _______, KK_GRV,  KK_QUES, KK_SLSH, KK_AT,
     _______, KK_AMPR, KK_RBRC, KK_EMOT, _______, KK_QUOT,
     KK_GT,   KC_EQL,  KC_ASTR, KK_DLR,  KK_CIRC, _______,
-    KK_HASH, KK_BSLS, KC_EXLM, _______, _______, _______),
+    KK_HASH, KK_BSLS, KC_EXLM, KK_3DOT, KK_ELLI, _______),
 [SUN] = FINGERS(
     KC_PAUS, KC_CAPS, KK_TPRV, KK_TNXT, KC_APP,  KC_INS,
     KC_ENT,  KK_SASK, KK_SSCN, KK_SWIN, KK_SSEL, KK_COPY,
-    KC_PSCR, _______, KC_VOLU, KC_MUTE, KC_VOLD, KK_PAST,
+    KC_PSCR, _______, KC_VOLD, KC_MUTE, KC_VOLU, KK_PAST,
     KC_F13,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F16,
     KC_F14,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F17,
     KC_F15,  KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F18),
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_PGDN, _______),
 [MOUSE] = FINGERS(
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX,    KC_LGUI, KC_LALT, KC_RSFT, KC_LCTL, XXXXXXX,
     RESET,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     KC_MS_BTN3, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_L, KC_WH_R,
     XXXXXXX,    KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_U, XXXXXXX,
@@ -148,6 +148,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       tap_code16(RU_DOT);
       tap_code16(KC_SPC);
+    }
+
+    case KK_MDSH:
+    if (record->event.pressed) {
+      tap_code16(KC_MINS);
+      tap_code16(KC_MINS);
+      tap_code16(KC_MINS);
+    }
+
+    case KK_3DOT:
+    if (record->event.pressed) {
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
+    }
+
+    case KK_ELLI:
+    if (record->event.pressed) {
+      tap_code16(KC_SLCK);
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
+      tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
     }
   }
   return true;

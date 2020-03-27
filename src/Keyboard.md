@@ -59,6 +59,9 @@ Processing is done in [Keymap.md](Keymap.md).
 - `KK_HASH`
 - `KK_BSLS`
 - `KK_DOT`
+- `KK_MDSH`
+- `KK_3DOT`
+- `KK_ELLI`
 - `M_LGUI`
 - `M_LALT_TAB`
 - `M_SUN_ESC`
