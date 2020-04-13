@@ -3,17 +3,17 @@
 #include "chords.h"
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LATIN] = FINGERS(
-    KC_DQUO, KC_Z, KC_P, KC_R, KC_D, KC_MINS,
-    KK_LANG, KC_H, KC_S, KC_T, KC_N, KK_CMSP,
-    KC_Q,    KC_Y, KC_K, KC_M, KC_C, KC_LPRN,
-    KC_SCLN, KC_F, KC_W, KC_U, KC_J, KC_QUOT,
+    KC_DQUO, KC_Z, KC_P, KC_R, KC_H, KC_Y,
+    KK_LANG, KC_D, KC_S, KC_T, KC_N, KK_CMSP,
+    KC_Q,    KC_SCLN, KC_K, KC_M, KC_C, KC_LPRN,
+    KC_MINS, KC_F, KC_W, KC_U, KC_J, KC_QUOT,
     KC_DOT,  KC_E, KC_O, KC_I, KC_L, KC_ENT,
     KC_RPRN, KC_A, KC_V, KC_B, KC_G, KC_X),
 [CYRILLIC] = FINGERS(
-    RU_ZH,   RU_CH,   RU_P,  RU_R,  RU_D, KC_MINS,
-    KK_LANG, RU_V,    RU_S,  RU_T,  RU_N, KK_CMSP,
-    RU_F,    RU_J,    RU_Z,  RU_M,  RU_K, KC_LPRN,
-    RU_SCLN, RU_SOFT, RU_JA, RU_U,  RU_H, RU_E,
+    RU_ZH,   RU_CH,   RU_P,  RU_R,  RU_V, RU_J,
+    KK_LANG, RU_D,    RU_S,  RU_T,  RU_N, KK_CMSP,
+    RU_F,    RU_SCLN, RU_Z,  RU_M,  RU_K, KC_LPRN,
+    KC_MINS, RU_SOFT, RU_JA, RU_U,  RU_H, RU_E,
     KK_DTSP, RU_JE,   RU_O,  RU_I,  RU_L, KC_ENT,
     KC_RPRN, RU_A,    RU_Y,  RU_B,  RU_G, RU_TS),
 [MARS] = FINGERS(
@@ -149,6 +149,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16(RU_DOT);
       tap_code16(KC_SPC);
     }
+    return false;
 
     case KK_MDSH:
     if (record->event.pressed) {
@@ -156,6 +157,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16(KC_MINS);
       tap_code16(KC_MINS);
     }
+    return false;
 
     case KK_3DOT:
     if (record->event.pressed) {
@@ -163,6 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
     }
+    return false;
 
     case KK_ELLI:
     if (record->event.pressed) {
@@ -171,6 +174,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
       tap_code16((layer_state & _BV(CYRILLIC)) ? RU_COMM : KC_COMM);
     }
+    return false;
   }
   return true;
 }
