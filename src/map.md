@@ -1,4 +1,7 @@
 # Keymap
+This is the most interesting file in the whole project, I guess.
+
+**TODO:** drop `layermode.h` dependency:
 
 ```c
 #include QMK_KEYBOARD_H
@@ -7,8 +10,6 @@
 #include "arbitrary_keycode/include.h"
 #include "combo/include.h"
 ```
-
-**Fun fact:** pictures are really outdated.
 
 ## Combo stuff
 ### defconst
@@ -32,16 +33,12 @@
 - `BC_S_U CMB_017`
 
 ```c
-#define EN_LETTER(l) CHORD(EN_##l, AC_##l)
 #define RU_LETTER(l) CHORD(RU_##l, BC_##l), CHORD(RU_S_##l, BC_S_##l)
 #define DUOLETTER(l, a, b) CHORD(RU_##l, BC_##a, BC_##b), CHORD(RU_S_##l, BC_S_##a, BC_S_##b)
 const ComboWithKeycode combos[] = {
-  // Letter declarations
-  //EN_LETTER(F), EN_LETTER(E), EN_LETTER(H), EN_LETTER(N),
   RU_LETTER(N), RU_LETTER(JA), RU_LETTER(SF), 
   RU_LETTER(Z), RU_LETTER(M), RU_LETTER(V), RU_LETTER(U), 
 
-  //CHORD(EN_LCBR, AC_F, AC_E), CHORD(EN_RCBR, AC_H, AC_N), // { } EN
   //        l ← a + b
   DUOLETTER(JO, JA, SF), // ё
   DUOLETTER(JU, U,  JA), // ю
@@ -58,8 +55,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ```
 
 ![Letter layers](pic/layer_letters.png)
-
-The Cyrillic chords are not declared in this file, see `chords.ini`.
 
 ```c
 [LATIN] = FINGERS(
@@ -92,6 +87,8 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
     RU_S_G,   RU_S_K,  BC_S_M,  BC_S_Z,  RU_S_H,    RU_S_F),
 ```
 
+----
+
 ![Mars layer](pic/layer_mars.png)
 
 ```c
@@ -103,6 +100,8 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
     EN_GT,   AG_EQL,  KC_ASTR, EN_DLR,  EN_CIRC, _______,
     EN_HASH, AG_BSLS, KC_EXLM, _______, _______, _______),
 ```
+
+----
 
 ![Sun layer](pic/layer_sun.png)
 
@@ -116,6 +115,8 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
     KC_F15,  KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F18),
 ```
 
+----
+
 ![Moon layer](pic/layer_moon.png)
 
 ```c
@@ -127,6 +128,8 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
     AG_DOT,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP, _______,
     _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_PGDN, _______),
 ```
+
+----
 
 ![Venus layer](pic/layer_venus.png)
 
@@ -140,12 +143,14 @@ The Cyrillic chords are not declared in this file, see `chords.ini`.
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX),
 ```
 
+----
+
 ```c
 };
 ```
 
 ## Record processing
-
+These two functions are needed for `combo` and `lang_shift` modules:
 ```c
 void user_timer(void) {
   combo_user_timer();
@@ -155,7 +160,9 @@ void user_timer(void) {
 void matrix_scan_user(void) {
   user_timer();
 }
+```
 
+```c
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (combo_enabled && !combo_process_record(keycode, record))
     return false;
