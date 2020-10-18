@@ -1,17 +1,13 @@
 QARA:=~/bin/qara2c
-CHORDGEN:=ruby chordgen.rb
+QMKDIR:=~/src/qmk_firmware
+
+reconfigure:
+	$(QARA) < src/config.md > config.h
 
 tangle:
-	$(QARA) < src/Config.md > config.h
-	$(QARA) < src/Keyboard.md > sagaris.h
-	$(QARA) < src/Keymap.md > keymaps/default/keymap.c
-
-gen_chords:
-	@echo Generating chords. Quantity:
-	$(CHORDGEN) --count-chords
-	@echo Please enter the number into the config manually.
-	$(CHORDGEN) > keymaps/default/chords.h
+	$(QARA) < src/board.md > sagaris.h
+	$(QARA) < src/map.md > keymaps/default/keymap.c
 
 flash: tangle
-	cd ~/src/qmk_firmware && make sagaris:default:avrdude
+	cd $(QMKDIR) && make sagaris:default:avrdude
 

@@ -7,21 +7,24 @@ Here is configuration for the metaphysical part (ideas and code).
 ```c
 #pragma once
 #include "quantum.h"
-#include "rusmap.h"
+
+#define CUSTOM_SAFE_RANGE END_OF_THIS_WORLD
 ```
 
 ## defconst Layers
 
 - `LATIN 0`
-- `CYRILLIC 1`
-- `MOON 2`
+- `LATIN_SHIFT 1`
+- `CYRILLIC 2`
+- `CYRILLIC_SHIFT 3`
+- `MOON 4`
   Basic text navigation and numbers.
-- `MARS 3`
+- `MARS 5`
   Additional layout-independent characters.
-- `SUN 4`
+- `SUN 6`
   Additional functional keys.
-- `MOUSE 5`
-  Mouse emulation, obv.
+- `VENUS 7`
+  Mouse emulation and weird things.
 
 ## enum custom_key
 
@@ -29,50 +32,23 @@ Processing is done in [Keymap.md](Keymap.md).
 
 - `KK_LANG = SAFE_RANGE`
   The one that switches layouts.
-- `KK_CMSP`
-  Type comma and a space dependent on current layout.
-- `KK_DTSP`
-- `KK_COMM`
-- `KK_DQUO`
 - `KK_GUIL`
 - `KK_EMOT`
   French quotes «».
-- `KK_LBRC`
-- `KK_RBRC`
-  Square brackets
-- `KK_LCBR`
-- `KK_RCBR`
-  Curly braces.
-- `KK_PIPE`
-- `KK_TILD`
-- `KK_COLN`
-- `KK_LT`
-- `KK_GT`
-- `KK_GRV`
-- `KK_QUES`
-- `KK_SLSH`
-- `KK_AT`
-- `KK_AMPR`
-- `KK_QUOT`
-- `KK_DLR`
-- `KK_CIRC`
-- `KK_HASH`
-- `KK_BSLS`
-- `KK_DOT`
+- `KK_DTSP`
 - `KK_MDSH`
-- `KK_3DOT`
-- `KK_ELLI`
 - `M_LGUI`
 - `M_LALT_TAB`
 - `M_SUN_ESC`
 - `M_RGUI`
 - `M_RCTL_DEL`
 - `M_RCTL_MOON`
+- `M_CRINGESHIFT`
+- `END_OF_THIS_WORLD`
 
 ## defconst Other custom keys but without extra processing
 
-- `M_LSFT_BSPC MT(MOD_LSFT, KC_BSPC)`
-- `M_MOUSE MO(MOUSE)`
+- `M_VENUS MO(VENUS)`
 - `M_MARS MO(MARS)`
 - `M_MOON MO(MOON)`
 - `M_ALT_CMP RALT_T(KC_SLCK)`
@@ -126,8 +102,8 @@ LAYOUT(
   k30, k31, k32, k33, k34, k35,
   k20, k21, k22, k23, k24, k25,
   k10, k11, k12, k13, k14, k15,
-  M_LGUI, M_LALT_TAB, M_LSFT_BSPC,
-  M_MOUSE, M_MARS, M_SUN_ESC,
+  M_LGUI, M_LALT_TAB, M_CRINGESHIFT,
+  M_VENUS, M_MARS, M_SUN_ESC,
   k36, k37, k38, k39, k3A, k3B,
   k26, k27, k28, k29, k2A, k2B,
   k16, k17, k18, k19, k1A, k1B,

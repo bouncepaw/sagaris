@@ -1,8 +1,7 @@
 # Configuration
 
 ```c
-#ifndef CONFIG_H
-#define CONFIG_H
+#pragma once
 #include "config_common.h"
 ```
 
@@ -12,7 +11,7 @@
   The same as in Sequira and everywhere else. Classic.
 - `PRODUCT_ID 0xBEF0`
   One higher than in Sequira.
-- `DEVICE_VER 0`
+- `DEVICE_VER 1`
 - `MANUFACTURER Bouncepaw`
 - `PRODUCT Sagaris`
 - `DESCRIPTION Ergonomic semichorded split keyboard`
@@ -26,15 +25,13 @@
 - `DIODE_DIRECTION COL2ROW`
   Found out through experimental way.
 - `TAPPING_TERM 140`
-- `DEBOUNCING_DELAY 5`
+- `DEBOUNCING_DELAY 15`
 - `LOCKING_SUPPORT_ENABLE`
 - `LOCKING_RESYNC_ENABLE`
-- `COMBO_ALLOW_ACTION_KEYS`
-- `COMBO_COUNT 8`
-  To be added later.
+- `LANG_CHANGE_DEFAULT LANG_CHANGE_CAPS`
+  See [this section of lang_shift docs](https://github.com/optozorax/moonlander/tree/new-layout/lang_shift#задать-характеристики).
+- `COMBO_MAX_SIZE 3`
+- `COMBO_STACK_MAX_SIZE 3`
+- `COMBO_KEYS_COUNT 23`
+- `COMBO_WAIT_TIME 100`
 
-## P.S.
-
-```
-#endif
-```

@@ -1,26 +1,37 @@
+# Keymap
+
+```c
 #include QMK_KEYBOARD_H
 #include "layermode.h"
 #include "lang_shift/include.h"
 #include "arbitrary_keycode/include.h"
 #include "combo/include.h"
-#define BC_N CMB_000
-#define BC_S_N CMB_001
-#define BC_T CMB_002
-#define BC_S_T CMB_003
-#define BC_S CMB_004
-#define BC_S_S CMB_005
-#define BC_JA CMB_006
-#define BC_S_JA CMB_007
-#define BC_SF CMB_008
-#define BC_S_SF CMB_009
-#define BC_Z CMB_010
-#define BC_S_Z CMB_011
-#define BC_M CMB_012
-#define BC_S_M CMB_013
-#define BC_V CMB_014
-#define BC_S_V CMB_015
-#define BC_U CMB_016
-#define BC_S_U CMB_017
+```
+
+**Fun fact:** pictures are really outdated.
+
+## Combo stuff
+### defconst
+- `BC_N CMB_000`
+- `BC_S_N CMB_001`
+- `BC_T CMB_002`
+- `BC_S_T CMB_003`
+- `BC_S CMB_004`
+- `BC_S_S CMB_005`
+- `BC_JA CMB_006`
+- `BC_S_JA CMB_007`
+- `BC_SF CMB_008`
+- `BC_S_SF CMB_009`
+- `BC_Z CMB_010`
+- `BC_S_Z CMB_011`
+- `BC_M CMB_012`
+- `BC_S_M CMB_013`
+- `BC_V CMB_014`
+- `BC_S_V CMB_015`
+- `BC_U CMB_016`
+- `BC_S_U CMB_017`
+
+```c
 #define EN_LETTER(l) CHORD(EN_##l, AC_##l)
 #define RU_LETTER(l) CHORD(RU_##l, BC_##l), CHORD(RU_S_##l, BC_S_##l)
 #define DUOLETTER(l, a, b) CHORD(RU_##l, BC_##a, BC_##b), CHORD(RU_S_##l, BC_S_##a, BC_S_##b)
@@ -38,7 +49,19 @@ const ComboWithKeycode combos[] = {
   DUOLETTER(SC, V,  N),  // щ
 };
 const uint8_t combos_size = sizeof(combos)/sizeof(ComboWithKeycode);
+```
+
+## The layers
+
+```c
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+```
+
+![Letter layers](pic/layer_letters.png)
+
+The Cyrillic chords are not declared in this file, see `chords.ini`.
+
+```c
 [LATIN] = FINGERS(
     KC_QUOT,  EN_SCLN, EN_U,    EN_W,    EN_F,      EN_Y,   
     LA_CHNG,  EN_V,    EN_I,    EN_O,    EN_E,      AG_CMSP,
@@ -67,6 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RU_MINS,  BC_S_V,  RU_S_R,  RU_S_P,  RU_S_CH,   RU_S_ZH, 
     RU_S_L,   BC_S_N,  RU_S_T,  RU_S_S,  RU_S_D,    RU_S_B,
     RU_S_G,   RU_S_K,  BC_S_M,  BC_S_Z,  RU_S_H,    RU_S_F),
+```
+
+![Mars layer](pic/layer_mars.png)
+
+```c
 [MARS] = FINGERS(
     AG_DQUO, _______, EN_LBRC, EN_LCBR, AG_PLUS, _______,
     KK_MDSH, EN_PIPE, EN_TILD, AG_PERC, AG_COLN, EN_LT,
@@ -74,6 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, EN_AMPR, EN_RCBR, EN_RBRC, _______, EN_QUOT,
     EN_GT,   AG_EQL,  KC_ASTR, EN_DLR,  EN_CIRC, _______,
     EN_HASH, AG_BSLS, KC_EXLM, _______, _______, _______),
+```
+
+![Sun layer](pic/layer_sun.png)
+
+```c
 [SUN] = FINGERS(
     _______, _______, KK_TPRV, KK_TNXT, KC_APP,  _______,
     LA_SYNC, KK_SASK, KK_SSCN, KK_SWIN, KK_SSEL, KK_COPY,
@@ -81,6 +114,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F13,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F16,
     KC_F14,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F17,
     KC_F15,  KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_F18),
+```
+
+![Moon layer](pic/layer_moon.png)
+
+```c
 [MOON] = FINGERS(
     RU_HD,   _______, KC_6,    KC_5,    KC_4,    _______,
     _______, KC_3,    KC_2,    KC_1,    KC_0,    AG_COMM,
@@ -88,6 +126,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_HOME, KC_UP,   KC_END,  _______, _______,
     AG_DOT,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP, _______,
     _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_PGDN, _______),
+```
+
+![Venus layer](pic/layer_venus.png)
+
+```c
 [VENUS] = FINGERS(
     XXXXXXX,    KC_PAUS, KC_PSCR, KC_INS,  KC_CAPS, XXXXXXX,
     XXXXXXX,    KC_LGUI, KC_LALT, KC_RSFT, KC_LCTL, XXXXXXX,
@@ -95,7 +138,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_MS_BTN3, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_L, KC_WH_R,
     XXXXXXX,    KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_U, XXXXXXX,
     XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX),
+```
+
+```c
 };
+```
+
+## Record processing
+
+```c
 void user_timer(void) {
   combo_user_timer();
   lang_shift_user_timer();
@@ -176,3 +227,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+```
