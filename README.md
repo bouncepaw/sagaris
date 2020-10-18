@@ -24,7 +24,7 @@ If you use some specific distributions of GNU+Linux, you may want to run my [`se
 
 ## Implementation details
 
-This firmware depends on modules developed by Optozorax, ergo (pun intended) a modified version of QMK is needed. See his [Moonlander firmware](https://github.com/optozorax/moonlander/) for more information.
+This firmware depends on modules developed by optozorax, ergo (pun intended) a modified version of QMK is needed. See his [Moonlander firmware](https://github.com/optozorax/moonlander/) for more information.
 
 If you don't want to use literate programming, do not. I want, ergo I do.
 
